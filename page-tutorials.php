@@ -3,10 +3,10 @@
  * Template Name: Tutorials Page
  */
 
-// get_header();
+get_header();
 	wp_head();
 ?>
-<h2>Tutorials</h2>
+<!-- <h2>Tutorials</h2> -->
 			<?php
 
 			/* Start the Loop */
