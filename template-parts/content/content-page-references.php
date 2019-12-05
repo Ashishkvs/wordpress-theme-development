@@ -15,6 +15,9 @@
                 <h2 class=text-center>Java Functions and Methods</h2>
             </div>
             <div class="mt-2">
+            <?php the_title(); ?>
+                <?php $table="javafunctions"; $columns = ["Functions", "Purpose"];
+ ?>
                 <?php include_once('datatables.php'); ?>
             </div>
         </div>

@@ -11,22 +11,24 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM javafunctions";
+$sql = "SELECT * FROM $table"; //table from inclusion caller file
 $result = $conn->query($sql);
+//dynamic column
+// $columns = ["Functions","Purpose"];
 
 $conn->close();
 // echo "connection closed";
 ?>
-
 <table id="example" class="display" style="width:100%">
     <thead>
         <tr class="text-center">
-            <th>Functions</th>
-            <th>Purpose</th>
+        <?php foreach($columns as $header)
+            echo "<th>".$header."</th>";
+            ?>
         </tr>
     </thead>
     <tbody>
-        <?php if ($result->num_rows > 0) {
+        <?php if ($result !=null && $result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
         $col1 = $row["funcname"];
