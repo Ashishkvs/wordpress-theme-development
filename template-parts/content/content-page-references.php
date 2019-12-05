@@ -1,4 +1,3 @@
-
 <!-- datatables -->
 <div class="container-fluid">
     <div class="row">
@@ -12,26 +11,11 @@
             </ul>
         </div>
         <div class="col-6 shadow-lg p-3 mb-5 bg-white rounded">
-            <div class="pt-2 pb-2 bg-danger mx-2">
+            <div class="pt-2 pb-2 bg-danger mx-0">
                 <h2 class=text-center>Java Functions and Methods</h2>
             </div>
-            <div class="">
-                <table id="example" class="display w3-large" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Function Name</th>
-                            <th>Purpose</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th></th>
-                            <th>Function Name</th>
-                            <th>Purpose</th>
-                        </tr>
-                    </tfoot>
-                </table>
+            <div class="mt-2">
+                <?php include_once('datatables.php'); ?>
             </div>
         </div>
         <div class="col">
