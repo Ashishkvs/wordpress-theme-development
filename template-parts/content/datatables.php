@@ -51,8 +51,8 @@ DATATABLES;
     </tbody>
     <tfoot>
         <tr>
-            <th>Function</th>
-            <th>Purpose</th>
+            <th class="text-center">Function</th>
+            <th class="text-center">Purpose</th>
 
         </tr>
     </tfoot>

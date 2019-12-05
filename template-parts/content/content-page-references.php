@@ -16,14 +16,26 @@
             </div>
             <div class="mt-2">
  <?php
+//  $temp=the_content();
+//  echo "asdas".$temp;
+// the_content();
+
 ob_start(); //Start output buffer
 the_content();
 $output = ob_get_contents(); //Grab output
 ob_end_clean(); //Discard output buffer
 // echo "HI".$output."hello";
-parse_str($output, $myArray);
-print_r($myArray);
- $table = "javafunctions";
+// parse_str($output, $myArray);
+// print_r($myArray);
+// echo $output;
+$output=substr($output,4);
+$output = strip_tags($output, '</p>');
+
+
+// echo $output;
+$arr=explode(" ", $output);
+// echo $arr[2];
+ $table = $arr[0];
 $columns = ["Functions", "Purpose"];
  include_once 'datatables.php';
  ?>
