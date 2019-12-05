@@ -12,13 +12,21 @@
         </div>
         <div class="col-6 shadow-lg p-3 mb-5 bg-white rounded">
             <div class="pt-2 pb-2 bg-danger mx-0">
-                <h2 class=text-center>Java Functions and Methods</h2>
+                <h2 class=text-center><?php the_title();?></h2>
             </div>
             <div class="mt-2">
-            <?php the_title(); ?>
-                <?php $table="javafunctions"; $columns = ["Functions", "Purpose"];
+ <?php
+ob_start(); //Start output buffer
+the_content();
+$output = ob_get_contents(); //Grab output
+ob_end_clean(); //Discard output buffer
+// echo "HI".$output."hello";
+parse_str($output, $myArray);
+print_r($myArray);
+ $table = "javafunctions";
+$columns = ["Functions", "Purpose"];
+ include_once 'datatables.php';
  ?>
-                <?php include_once('datatables.php'); ?>
             </div>
         </div>
         <div class="col">
