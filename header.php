@@ -16,6 +16,7 @@
             <a class="p-2 text-dark" href="<?php echo site_url('/python-functions');?>">Python Functions</a>
             <a class="p-2 text-dark" href="<?php echo site_url('/java-functions');?>">Java Functions</a>
             <a class="p-2 text-dark" href="<?php echo site_url('/references-page/');?>">References</a>
+            
         </nav>
         <a class="btn btn-outline-primary" href="#">Sign up</a>
     </div>
