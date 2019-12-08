@@ -40,7 +40,8 @@ $columns = ["","Functions", "Purpose"];
 $table = preg_replace("/[^a-zA-Z0-9]/", "", $table);
 
 $table_url = "http://localhost/data_tables/javafunctions.php?name=".$table;
-//  include_once 'datatables.php';
+//  include_once 'javafunctions.php';
+
  ?>
                 <table id="example" class="display w3-large" style="width:100%">
                     <thead>
