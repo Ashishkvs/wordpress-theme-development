@@ -5,3 +5,12 @@ STEP 2
 https://developer.wordpress.org/themes/basics/template-hierarchy/
 STEP 3
 https://developer.wordpress.org/themes/basics/including-css-javascript/#stylesheets
+
+#html inside php tag
+echo <<<EXAMPLEPOSTS
+
+<div class="example-post"> 
+<p class="example-code badge badge-info">$goal</p>
+</div>
+
+EXAMPLEPOSTS;

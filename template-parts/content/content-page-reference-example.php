@@ -94,7 +94,7 @@ EXAMPLEPOSTS;
 $x++;
 }   
 } else {
-    echo "0 results";
+    echo "<br> No records to display !!";
 }
 
 // loop ends here
