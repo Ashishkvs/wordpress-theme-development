@@ -1,79 +1,26 @@
-<?php
-/**
- * Template Name: Reference  Page
- */
-
-get_header();
-
-?>
+<html>
 <!-- for datatables only  -->
-<?echo $_GET['name']; ?>
+<head>
 <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
-</script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<!-- <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script> -->
-
-
-<!-- <h2>References</h2> -->
-<?php
-
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'template-parts/content/content', 'page-references' );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) {
-					comments_template();
-				}
-
-			endwhile; // End of the loop.
-			?>
-
-</main><!-- #main -->
-</section><!-- #primary -->
-<!-- datatables script starts here  -->
-<?php
-ob_start(); //Start output buffer
-the_content();
-$output = ob_get_contents(); //Grab output
-ob_end_clean(); //Discard output buffer
-$output = substr($output, 4);
-$output = strip_tags($output, '</p>');
-
-// echo $output;
-$arr = explode(" ", $output);
-// echo $arr[2];
-$table = $arr[0];
-$columns = ["", "Functions", "Purpose"];
-$table = preg_replace("/[^a-zA-Z0-9_]/", "", $table);
-
-$table_url = "http://localhost/data_tables/javafunctions.php?name=" . $table;
-//  include_once 'javafunctions.php';
-
-?>
+<script type="text/javascript" charset="utf8" src="datatables.js"></script>
 <script>
 
 function format ( d ) {
     return '<b><u>Syntax:</u></b> <br>'+d.syntax+ '<br>'+
-            '<b><u>Example Code:</u></b> <br>' +d.example_code +'<br>'+'<b><u>Result:</u></b> <br>'+d.code_output+'<br> <a href="<?php echo site_url('/');?>'+d.pagename+'"><button class="btn btn-primary"> Click for more Examples</button></a>'
+            '<b><u>Example Code:</u></b> <br>' +d.example_code +'<br>'+'<b><u>Result:</u></b> <br>'+d.code_output+'<br> <a href="'+d.pagename+'.php" target="_blank" ><button class="w3-button w3-deep-purple w3-border-yellow w3-round"> Click for more Examples</button></a>'
             ;
 }
 
 
 $(document).ready(function() {
-    var table_url="<?php echo $table_url; ?>";
-    
     var dt = $('#example').DataTable( {
         "processing": true,
         "serverSide": true,
         "pageLength": 10,
         "info":true,
-		"ajax": {
-            "url": table_url,
-            "type": "GET"
-},
+        "ajax": "javafunctions.php",
         "columns": [
             {
                 "class":          "details-control",
@@ -136,6 +83,22 @@ $(document).ready(function() {
 } );    
     
 </script>
-<!-- end of datatables script -->
-<?php
-get_footer();
+</head>
+<body>
+<table id="example" class="display w3-large" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Function Name</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th>Function Name</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </tfoot>
+                </table></body>
+</html>

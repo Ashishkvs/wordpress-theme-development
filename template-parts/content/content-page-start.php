@@ -6,5 +6,4 @@
 </header>
 <div class="jumbotron">
 
-<div class="wp-img-bg">Hello</div>
 </div>
