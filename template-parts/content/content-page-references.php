@@ -4,10 +4,16 @@
         <div class="col">
             <h2 class="ml-3">References</h2>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Python References</li>
-                <li class="list-group-item">Java References</li>
-                <li class="list-group-item">Scala References</li>
-
+                <?php
+                        //external_db_fetch
+                        $mydb = new wpdb('root', '', 'foolsrwn_java', 'localhost');
+                        $results = $mydb->get_results("SELECT references_name FROM tut_ref_meta_info");
+                        foreach ($results as $rs) {
+                        if($rs->references_name != ''){
+                            echo '<li class="list-group-item"><a href="'.$rs->references_name.'">'.$rs->references_name.' References </a></li>';
+                        }
+                        }
+                ?>
             </ul>
         </div>
         <div class="col-7 shadow-lg p-3 mb-5 bg-white rounded">

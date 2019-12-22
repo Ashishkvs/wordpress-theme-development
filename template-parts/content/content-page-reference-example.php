@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-6 col-sm-6 shadow-lg p-3 mb-5 bg-white rounded">
             <div class="pt-2 pb-2 bg-primary mb-2">
-                <h2 class="text-center text-white-color"><?php the_title(); ?></h2>
+                <h2 class="text-center text-white-color">Example on <?php the_title(); ?></h2>
             </div>
 <?php 
 ob_start(); //Start output buffer

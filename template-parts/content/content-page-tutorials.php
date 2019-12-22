@@ -3,10 +3,16 @@
         <div class="col">
             <h2 class="ml-3">Tutorials</h2>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Python Tutorial</li>
-                <li class="list-group-item">Java Tutorial</li>
-                <li class="list-group-item">Scala Tutorial</li>
-               
+                <?php
+                        //external_db_fetch
+                        $mydb = new wpdb('root', '', 'foolsrwn_java', 'localhost');
+                        $results = $mydb->get_results("SELECT tutorials FROM tut_ref_meta_info");
+                        foreach ($results as $rs) {
+                            if($rs->tutorials != ''){
+                                echo '<li class="list-group-item">'.$rs->tutorials.' Tutorials</li>';
+                            }
+                        }
+                ?>
             </ul>
         </div>
         <div class="col-6 shadow-lg p-3 mb-5 bg-white rounded">
